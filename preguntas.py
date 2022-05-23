@@ -128,10 +128,10 @@ def pregunta_04():
     #  * Validación cruzada con 5 particiones
     #  * Compare modelos usando r^2
     gridsearchcv = GridSearchCV (
-        estimator = estimator,
-        param_grid = param_grid,
-        cv = 5,  
-        scoring = 'r2'
+        estimator=estimator,
+        param_grid=param_grid,
+        cv=5,  
+        scoring='r2'
     )
 
 
@@ -148,17 +148,13 @@ def pregunta_05():
 
     # Cargue las variables.
     x_train, x_test, y_train, y_test = pregunta_02()
-
     # Obtenga el objeto GridSearchCV
     estimator = pregunta_04()
-
     # Entrene el estimador
     estimator.fit(x_train, y_train)  #
-
     # Pronostique para las muestras de entrenamiento y validacion
     y_trian_pred = estimator.predict(x_train)  
     y_test_pred = estimator.predict(x_test)  
-
     # Calcule el error cuadrático medio de las muestras
     mse_train = mean_squared_error(  
         y_train,  
